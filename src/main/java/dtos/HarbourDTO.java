@@ -14,7 +14,10 @@ public class HarbourDTO {
 
 
     public HarbourDTO(Harbour rm) {
-
+    this.id = rm.getId();
+    this.name = rm.getName();
+    this.address = rm.getAddress();
+    this.capacity = rm.getCapacity();
     }
 
     public static List<HarbourDTO> getDtos(List<Harbour> rms) {

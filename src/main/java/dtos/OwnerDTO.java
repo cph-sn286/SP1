@@ -12,8 +12,12 @@ public class OwnerDTO {
     private String address;
     private String phone;
 
-    public OwnerDTO(Owner rm) {
 
+    public OwnerDTO(Owner rm) {
+    this.id = rm.getId();
+    this.name = rm.getName();
+    this.address = rm.getAddress();
+    this.phone = rm.getPhone();
     }
 
     public static List<OwnerDTO> getDtos(List<Owner> rms) {
@@ -21,5 +25,7 @@ public class OwnerDTO {
         rms.forEach(rm -> rmdtos.add(new OwnerDTO(rm)));
         return rmdtos;
     }
+
+
 
 }

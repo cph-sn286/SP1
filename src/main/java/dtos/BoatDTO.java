@@ -15,7 +15,11 @@ public class BoatDTO {
 
 
     public BoatDTO(Boat rm) {
-
+    this.id = rm.getId();
+    this.brand = rm.getBrand();
+    this.make = rm.getMake();
+    this.name = rm.getName();
+    this.image = rm.getImage();
     }
 
     public static List<BoatDTO> getDtos(List<Boat> rms) {
