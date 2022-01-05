@@ -1,7 +1,9 @@
 package facades;
 
 import dtos.BoatDTO;
+import dtos.OwnerDTO;
 import entities.Boat;
+import entities.Owner;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,5 +32,28 @@ public class BoatFacade {
         query.setParameter("name", name);
         List<Boat> rms = query.getResultList();
         return BoatDTO.getDtos(rms);
+    }
+
+    public List<OwnerDTO> getOwnersByBoat(String name) {
+        EntityManager em = emf.createEntityManager();
+        TypedQuery<Owner> query = em.createQuery("SELECT  p FROM Owner p INNER JOIN p.boatList h WHERE h.name = :name", Owner.class);
+        query.setParameter("name", name);
+        List<Owner> rms = query.getResultList();
+        return OwnerDTO.getDtos(rms);
+    }
+
+    public BoatDTO create(BoatDTO pn) {
+        Boat boat =
+                new Boat(pn.getId(), pn.getBrand(), pn.getMake(), pn.getName(), pn.getImage());
+
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(boat);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return new BoatDTO(boat);
     }
 }

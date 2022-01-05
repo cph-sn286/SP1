@@ -33,5 +33,7 @@ public class OwnerRessource {
         List<OwnerDTO> rns = FACADE.getAll();
         return Response.ok().entity(GSON.toJson(rns)).build();
     }
+
+
 }
 
