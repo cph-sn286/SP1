@@ -1,11 +1,24 @@
 package entities;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Boat {
     private long id;
+    private static final long serialVersionUID = 1L;
+    @Id
     private String brand;
     private String make;
     private String name;
     private String image;
+
+    @ManyToMany(mappedBy = "boatList")
+    private List<Owner> ownerList;
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Harbour harbour;
 
     public Boat() {
     }

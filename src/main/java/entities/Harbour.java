@@ -1,10 +1,18 @@
 package entities;
 
+import javax.persistence.*;
+import java.util.List;
+@Entity
 public class Harbour {
+    private static final long serialVersionUID = 1L;
+    @Id
     private long id;
     private String name;
     private String address;
     private int capacity;
+
+    @OneToMany(mappedBy = "harbour")
+    private List<Boat> boatList;
 
     public Harbour() {
     }
