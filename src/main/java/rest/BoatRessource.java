@@ -32,7 +32,7 @@ public class BoatRessource {
         }
 
     @GET
-    @Path("getBoatByHarbour/{name}")
+    @Path("getboatbyharbour/{name}")
     @Produces({MediaType.APPLICATION_JSON})
     public Response getBoatByHarbour(@PathParam("name") String name) {
         List<BoatDTO> rn = FACADE.getBoatByHarbour(name);
