@@ -15,11 +15,28 @@ public class BoatDTO {
 
 
     public BoatDTO(Boat rm) {
-    this.id = rm.getId();
-    this.brand = rm.getBrand();
-    this.make = rm.getMake();
-    this.name = rm.getName();
-    this.image = rm.getImage();
+        this.id = rm.getId();
+        this.brand = rm.getBrand();
+        this.make = rm.getMake();
+        this.name = rm.getName();
+        this.image = rm.getImage();
+    }
+
+
+    public BoatDTO() {
+    }
+
+    public BoatDTO(BoatDTO boatDTO) {
+        this.brand = boatDTO.getBrand();
+        this.make = boatDTO.getMake();
+        this.name = boatDTO.getName();
+
+    }
+
+    public BoatDTO(String brand, String make, String name) {
+        this.brand = brand;
+        this.make = make;
+        this.name = name;
     }
 
     public long getId() {

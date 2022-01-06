@@ -44,7 +44,7 @@ public class BoatFacade {
 
     public BoatDTO create(BoatDTO pn) {
         Boat boat =
-                new Boat(pn.getId(), pn.getBrand(), pn.getMake(), pn.getName(), pn.getImage());
+                new Boat(pn.getBrand(), pn.getMake(), pn.getName());
 
         EntityManager em = emf.createEntityManager();
         try {

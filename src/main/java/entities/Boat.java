@@ -31,6 +31,12 @@ public class Boat {
         this.image = image;
     }
 
+    public Boat(String brand, String make, String name) {
+        this.brand = brand;
+        this.make = make;
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }
