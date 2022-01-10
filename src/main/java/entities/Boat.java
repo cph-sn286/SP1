@@ -3,10 +3,14 @@ package entities;
 import javax.persistence.*;
 import java.util.List;
 
+
+
 @Entity
+@NamedQuery(name = "Boat.deleteAllRows", query = "DELETE from Boat ")
 public class Boat {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String brand;
     private String make;
